@@ -14,12 +14,10 @@ function App() {
       const vendedores = await getVendedores();
       const reglas = await getReglas();
 
-      // Calcular comisión por venta según reglas
       const comisionesPorVendedor = vendedores.map(vendedor => {
         const ventasVendedor = ventas.filter(v => v.vendedor_id === vendedor.id);
         let totalComision = 0;
         ventasVendedor.forEach(venta => {
-          // Buscar la regla que aplica
           const regla = reglas.find(r => venta.monto >= r.amount);
           if (regla) {
             totalComision += venta.monto * regla.rule;
