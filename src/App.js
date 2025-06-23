@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { getVendedores, getVentasPorFecha, getReglas } from './api';
+import './App.css';
 
 function App() {
   const [fechaInicio, setFechaInicio] = useState('');
@@ -37,7 +38,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="app-container">
       <h1>Calcular Comisión de Ventas</h1>
       <label>
         Fecha Inicio:
